@@ -25,10 +25,13 @@ router.get('/mongo', function(req, res, next){
 
 		cursor.toArray(function(err, items){
 			res.send(items);
+			client.disconnect();
 		});
 
-		db.close();
+
 	});
+	//db.close();
+
 });
 
 router.post('/test', function(req, res, next){
