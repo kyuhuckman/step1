@@ -6,26 +6,28 @@ var appRoot = require('app-root-path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express2' });
+	//res.render('index',{ title: 'Express2' });
+	var a  ="ok";
+	res.send('ss');
 });
 
 /* MongoDB TEST Source */
 router.get('/mongo', function(req, res, next){
 	var data = '';
-	client.connect('mongodb://54.249.83.123:27017/newDB', function(err, db){
-		
-		var doc = db.collection('users');
+	client.connect('mongodb://52.91.16.126:27017/kyuhuckmongo', function(err, db){
+
+		var doc = db.collection('gorealra');
 		var cursor = doc.find();
-		
+
 		doc.count(function(err, count){
 			console.log(count);
 		});
-		
+
 		cursor.toArray(function(err, items){
 			res.send(items);
 		});
-		
-		//db.close();
+
+		db.close();
 	});
 });
 
