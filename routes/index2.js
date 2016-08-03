@@ -29,15 +29,15 @@ router.get('/mongo2', function(req, res, next){
 
 
 	client.connect('mongodb://54.249.83.123:27017/newDB', function(err, db){
-					if(id == null) {
-						//var cursor = db.collection('board').find({"seq":{$gt:parseInt(seq)}}).sort({seq:-1}).skip(parseInt(start)).limit(10);
+		if(id == null) {
+			//var cursor = db.collection('board').find({"seq":{$gt:parseInt(seq)}}).sort({seq:-1}).skip(parseInt(start)).limit(10);
 
-						//var cursor = db.collection('board').find({"seq":{$lte:parseInt(seq)}}).sort({seq:-1}).skip(parseInt(start)).limit(10)
-						var cursor = db.collection('board').find().sort({seq:-1}).skip(parseInt(start)).limit(10)
+			//var cursor = db.collection('board').find({"seq":{$lte:parseInt(seq)}}).sort({seq:-1}).skip(parseInt(start)).limit(10)
+			var cursor = db.collection('board').find().sort({seq:-1}).skip(parseInt(start)).limit(10)
 
 
-						db.collection('board').count(function (err,count){
-							var jkh  = new Array();
+			db.collection('board').count(function (err,count){
+				var jkh  = new Array();
 				var jkh2  = new Object();
 				cursor.toArray(function(err, items){
 					jkh2.total_list = count;

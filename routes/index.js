@@ -6,10 +6,15 @@ var appRoot = require('app-root-path');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	//res.render('index',{ title: 'Express2' });
-	var a  ="ok";
-	res.send('ss');
+	res.render('index', { title: 'Express2' });
 });
+
+
+router.get('/testjsonp', function(req, res, next) {
+	res.render('jsonp');
+});
+
+
 
 /* MongoDB TEST Source */
 router.get('/mongo', function(req, res, next){
@@ -25,7 +30,7 @@ router.get('/mongo', function(req, res, next){
 
 		cursor.toArray(function(err, items){
 			res.send(items);
-			client.disconnect();
+
 		});
 
 
